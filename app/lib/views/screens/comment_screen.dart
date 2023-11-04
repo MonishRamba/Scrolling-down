@@ -22,6 +22,7 @@ class CommentScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         appBar: AppBar(
             backgroundColor: Colors.black,
             title: const Text("Comments"),
@@ -111,43 +112,43 @@ class CommentScreen extends StatelessWidget {
                       }),
                     ),
                     const Divider(),
-                    SingleChildScrollView(
-                      child: Flexible(
-                        child: ListTile(
-                          title: TextFormField(
-                            controller: _commentController,
-                            style: const TextStyle(
-                              fontSize: 16,
+                    Padding(
+                      padding: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).viewInsets.bottom),
+                      child: ListTile(
+                        title: TextFormField(
+                          controller: _commentController,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            color: Colors.white,
+                          ),
+                          decoration: const InputDecoration(
+                            labelText: 'Comment',
+                            labelStyle: TextStyle(
+                              fontSize: 20,
                               color: Colors.white,
+                              fontWeight: FontWeight.w700,
                             ),
-                            decoration: const InputDecoration(
-                              labelText: 'Comment',
-                              labelStyle: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w700,
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.red,
                               ),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.red,
-                                ),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.red,
-                                ),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.red,
                               ),
                             ),
                           ),
-                          trailing: TextButton(
-                            onPressed: () => commentController
-                                .postComment(_commentController.text),
-                            child: const Text(
-                              'Send',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.white,
-                              ),
+                        ),
+                        trailing: TextButton(
+                          onPressed: () => commentController
+                              .postComment(_commentController.text),
+                          child: const Text(
+                            'Send',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
                             ),
                           ),
                         ),
