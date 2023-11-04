@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href = "scroll.css">
+</head>
+<body>
+    <div class = "wrapper">
+    <div class = "cards">
+        <div class = "card">
+            <img
+            src = "test.png.png"
+            class = "img">
+
+            <h1 class = "title"> 
+                Making a robot dog pee bear
+            </h1>
+        </div>
+    </div>
+    </div>
+<script>
+    var wrapper = document.querySelector(".wrapper");
+
+var cards = document.querySelector(".cards");
+var loading = document.querySelector(".loading");
+var page = 0;
+
+var size = 10;
+
+var posts = [];
+
+window.onload = function () {
+    getData();
+};
+
+function getData() {
+    loading.style.display = "flex";
+    fetch(`https://api.instantwebtools.net/vl/passenger?page=${page}&size=${size}`,{
+    method: "GET",
+})
+    .then((data) =>
+    {
+    return data.json();
+    })
+    .then ((res) => {
+    posts = res.data;
+    if (posts.length > 0){
+        loading.style.display = "none";
+        posts.map((item) => {
+            let carditem = `<div class = "card">
+            <img
+                src = ${item.airline[0].logo}
+            class = "img"/>
+            <h1 class = "title"> 
+                ${item.airline[0].name}
+                </h1>
+                </div>`;
+            cards.insertAdjacentHTML("beforeend", carditem);
+        });
+    }
+    })
+    };
+
+    function addData() {
+        setTimeout(() => {
+            page++;
+            getData();
+        }, 300);
+    }
+    
+    window.onscroll = function() {
+        const{ scrollTop, scrollHeight, ClientHeight} = document.documentElement;
+    }
+    if (scrollTop + ClientHeight >= scrollHeight - 5) {
+        addData();
+    }
+    </script>
+</body>
+</html>
