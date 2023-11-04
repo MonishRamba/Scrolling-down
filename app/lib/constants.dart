@@ -7,6 +7,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:hackout/views/screens/add_video_screen.dart';
 import 'package:hackout/views/screens/home_screen.dart';
+import 'package:hackout/views/screens/profile_screen.dart';
+import 'package:hackout/views/screens/search_screen.dart';
 import 'package:hackout/views/screens/video_screen.dart';
 
 import 'controllers/auth_controller.dart';
@@ -21,11 +23,11 @@ List pages = [
   // SearchScreen(),
   // const AddVideoScreen(),
   VideoScreen(),
-  Text('Search Screen'),
+  SearchScreen(),
   const AddVideoScreen(),
   const Text('Messages Screen'),
-  Text('Profile Screen'),
-  // ProfileScreen(uid: authController.user.uid),
+  // Text('Profile Screen'),
+  ProfileScreen(uid: authController.user.uid),
 ];
 
 // COLORS
