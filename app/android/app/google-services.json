@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "428617520310",
+    "project_id": "hackout-abfa5",
+    "storage_bucket": "hackout-abfa5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428617520310:android:8022b1969b7032ccdf0217",
+        "android_client_info": {
+          "package_name": "com.example.hackout"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWiJpG8vV8PqPmFu2TlSMPESf7GQtKsJs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
