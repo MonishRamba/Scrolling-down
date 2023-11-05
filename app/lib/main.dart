@@ -27,8 +27,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Hackout",
-      theme:
-          ThemeData.dark().copyWith(scaffoldBackgroundColor: backgroundColor),
+      theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: backgroundColor,
+          canvasColor: Colors.transparent),
       home: LoginScreen(),
     );
   }

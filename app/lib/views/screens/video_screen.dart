@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hackout/views/screens/git_screen.dart';
+import 'package:hackout/views/widgets/desciption.dart';
 import 'package:video_player/video_player.dart';
 import 'package:get/get.dart';
 
@@ -48,7 +50,7 @@ class VideoScreen extends StatelessWidget {
       child: Column(
         children: [
           Container(
-              padding: EdgeInsets.all(11),
+              // padding: const EdgeInsets.all(1),
               height: 50,
               width: 50,
               decoration: BoxDecoration(
@@ -62,7 +64,7 @@ class VideoScreen extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(25),
                 child: Image(
-                  image: NetworkImage(profilePhoto),
+                  image: Image.asset("assets/git.png").image,
                   fit: BoxFit.cover,
                 ),
               ))
@@ -74,6 +76,16 @@ class VideoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
+    void openDescriptionOverlay() {
+      showModalBottomSheet(
+        useSafeArea: true,
+        constraints: const BoxConstraints(maxWidth: double.infinity),
+        isScrollControlled: true,
+        context: context,
+        builder: (ctx) => Opacity(opacity: 0.0, child: Description()),
+      );
+    }
 
     return Scaffold(
       body: Obx(() {
@@ -117,29 +129,32 @@ class VideoScreen extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  Text(
-                                    data.caption,
-                                    style: const TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.white,
-                                    ),
+                                  const SizedBox(
+                                    height: 10,
                                   ),
-                                  Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.music_note,
-                                        size: 15,
-                                        color: Colors.white,
-                                      ),
-                                      Text(
-                                        data.songName,
-                                        style: const TextStyle(
-                                          fontSize: 15,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
+                                  InkWell(
+                                    onTap: openDescriptionOverlay,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          data.songName,
+                                          style: const TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
-                                      ),
-                                    ],
+                                        Text(
+                                          data.caption,
+                                          style: const TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   )
                                 ],
                               ),
@@ -207,16 +222,20 @@ class VideoScreen extends StatelessWidget {
                                 Column(
                                   children: [
                                     InkWell(
-                                      onTap: () {},
-                                      child: const Icon(
-                                        Icons.reply,
+                                      onTap: () =>
+                                          videoController.assist(data.id),
+                                      child: Icon(
+                                        Icons.handshake_rounded,
                                         size: 40,
-                                        color: Colors.white,
+                                        color: data.shareCount.contains(
+                                                authController.user.uid)
+                                            ? Colors.red
+                                            : Colors.white,
                                       ),
                                     ),
                                     const SizedBox(height: 7),
                                     Text(
-                                      data.shareCount.toString(),
+                                      data.shareCount.length.toString(),
                                       style: const TextStyle(
                                         fontSize: 20,
                                         color: Colors.white,
@@ -224,9 +243,16 @@ class VideoScreen extends StatelessWidget {
                                     )
                                   ],
                                 ),
-                                CircleAnimation(
+                                InkWell(
+                                  onTap: () => Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) => GitScreen(
+                                        link: data.link,
+                                      ),
+                                    ),
+                                  ),
                                   child: buildMusicAlbum(data.profilePhoto),
-                                ),
+                                )
                               ],
                             ),
                           ),

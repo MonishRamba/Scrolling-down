@@ -50,19 +50,19 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAWiJpG8vV8PqPmFu2TlSMPESf7GQtKsJs',
-    appId: '1:428617520310:android:8022b1969b7032ccdf0217',
-    messagingSenderId: '428617520310',
-    projectId: 'hackout-abfa5',
-    storageBucket: 'hackout-abfa5.appspot.com',
+    apiKey: 'AIzaSyDTzp6NL7j1y0tuXBYEVk1L5SyiPxxRG1s',
+    appId: '1:284548884295:android:e524a7df574c4db6468e62',
+    messagingSenderId: '284548884295',
+    projectId: 'hackout2-9aee8',
+    storageBucket: 'hackout2-9aee8.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBhzKin4jbmOymuezOBP1dWzvIla59gRNQ',
-    appId: '1:428617520310:ios:2f21eeba8dfbc65ddf0217',
-    messagingSenderId: '428617520310',
-    projectId: 'hackout-abfa5',
-    storageBucket: 'hackout-abfa5.appspot.com',
+    apiKey: 'AIzaSyDy5ifol8rKmJR3pANa9RkAfcp0AXbLdTc',
+    appId: '1:284548884295:ios:4d1514d4471d5a0d468e62',
+    messagingSenderId: '284548884295',
+    projectId: 'hackout2-9aee8',
+    storageBucket: 'hackout2-9aee8.appspot.com',
     iosBundleId: 'com.example.hackout',
   );
 }

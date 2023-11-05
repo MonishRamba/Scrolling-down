@@ -19,7 +19,7 @@ class LoginScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'HACKOUT',
+              'Compile',
               style: TextStyle(
                 fontSize: 35,
                 color: buttonColor,
