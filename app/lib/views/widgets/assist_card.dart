@@ -9,11 +9,11 @@ class AssistCard extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
             height: 100,
             child: Row(
               children: [
-                Column(
+                const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -25,7 +25,7 @@ class AssistCard extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                      "video name",
+                      "Video Title",
                       style: TextStyle(
                         fontSize: 15,
                       ),

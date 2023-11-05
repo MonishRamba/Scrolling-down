@@ -7,6 +7,6 @@ class NotiScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: 10, itemBuilder: ((context, index) => AssistCard()));
+        itemCount: 10, itemBuilder: ((context, index) => const AssistCard()));
   }
 }

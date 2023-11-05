@@ -83,7 +83,7 @@ class VideoScreen extends StatelessWidget {
         constraints: const BoxConstraints(maxWidth: double.infinity),
         isScrollControlled: true,
         context: context,
-        builder: (ctx) => Opacity(opacity: 0.0, child: Description()),
+        builder: (ctx) => const Opacity(opacity: 0.0, child: Description()),
       );
     }
 
